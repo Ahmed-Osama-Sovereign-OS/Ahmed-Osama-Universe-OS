@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ahmed Osama Universe OS | إمبراطورية الأنظمة</title>
+    <style>
+        body {
+            background: radial-gradient(circle, #050010 0%, #000000 100%);
+            color: #00ffcc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .logo {
+            width: 300px;
+            border-radius: 50%;
+            box-shadow: 0 0 50px #ff00ff, 0 0 100px #00ffff;
+            animation: pulse 2s infinite alternate, rotate 20s linear infinite;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes pulse { from { transform: scale(1); } to { transform: scale(1.1); } }
+        
+        h1 { font-size: 3rem; text-shadow: 0 0 20px #00ffcc; margin-top: 20px; }
+        .predator-text { color: #ff0055; font-weight: bold; font-size: 1.5rem; }
+        
+        .btn-download {
+            background: linear-gradient(45deg, #ff0055, #8800ff);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 0, 85, 0.4);
+        }
+        .btn-download:hover { transform: scale(1.2); box-shadow: 0 0 30px #ff0055; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="installer_logo.png" alt="AO Logo" class="logo">
+        <h1>Ahmed Osama Universe OS</h1>
+        <p class="predator-text">نظام الافتراس الكوني - تم كسر قيود الشركات الكبرى</p>
+        <p>الذكاء الاصطناعي، الفيزياء، والكون.. الكل في نظام واحد يعمل أوفلاين.</p>
+        
+        <a href="Ahmed_Osama_OS.iso" class="btn-download">استخرج الوحش الآن (تحميل ISO)</a>
+        
+        <div style="margin-top: 50px; font-size: 0.8rem; opacity: 0.5;">
+            Developed by Ahmed Osama (15 Years Old) | The World Unites
+        </div>
+    </div>
+</body>
+</html>
