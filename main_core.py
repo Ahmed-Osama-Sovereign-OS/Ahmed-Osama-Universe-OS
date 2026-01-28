@@ -1,94 +1,108 @@
 
-import pygame
-from pygame.locals import *
-from OpenGL.GL import *
-from OpenGL.GLU import *
-import math, sys, time, subprocess
+import time, sys, os, math, random, hashlib
 
-# ==========================================
-# 1. نظام شفرة التفعيل السيادية (Security)
-# ==========================================
-def check_activation():
-    SOVEREIGN_KEY = "AO-2026-UNIVERSE" 
-    print("\n" + "="*40)
-    print("   AHMED OSAMA UNIVERSE OS - SECURITY")
-    print("="*40)
-    user_input = input("أدخل شيفرة التفعيل للعبور إلى العالم الجديد: ")
-    if user_input == SOVEREIGN_KEY:
-        print("\n[✔] تم التحقق.. أهلاً بك أيها القائد أحمد أسامة.")
-        return True
-    else:
-        print("\n[✘] شفرة خاطئة! لا يمكنك كسر نظام السيادة.")
-        sys.exit()
-
-# ==========================================
-# 2. شاشة الترحيب الكونية (Splash Screen)
-# ==========================================
-def splash_screen():
-    pygame.init()
-    screen = pygame.display.set_mode((1280, 720), pygame.NOFRAME)
-    clock = pygame.time.Clock()
-    try:
-        logo = pygame.image.load("installer_logo.png")
-        logo = pygame.transform.scale(logo, (450, 450))
-    except:
-        logo = pygame.Surface((400, 400), pygame.SRCALPHA)
-        pygame.draw.circle(logo, (50, 0, 100), (200, 200), 180)
-
-    start_time = pygame.time.get_ticks()
-    angle = 0
-    while pygame.time.get_ticks() - start_time < 6000:
-        screen.fill((2, 0, 10))
-        angle += 4
-        rotated_logo = pygame.transform.rotate(logo, angle)
-        scale = 1 + 0.05 * math.sin(pygame.time.get_ticks() * 0.005)
-        new_size = (int(rotated_logo.get_size()[0] * scale), int(rotated_logo.get_size()[1] * scale))
-        final_logo = pygame.transform.scale(rotated_logo, new_size)
-        screen.blit(final_logo, final_logo.get_rect(center=(640, 360)))
-        
-        font = pygame.font.Font(None, 40)
-        text = font.render("Initiating Predator Mode... Sovereign AI Online", True, (0, 255, 200))
-        screen.blit(text, (380, 660))
-        pygame.display.flip()
-        clock.tick(60)
-    pygame.quit()
-
-# ==========================================
-# 3. محرك النظام ومتجر الافتراس (Core & Store)
-# ==========================================
-class UniverseOS:
+class AO_Ultimate_Omniverse_Sovereignty:
     def __init__(self):
-        pygame.init()
-        pygame.display.set_mode((1280, 720), DOUBLEBUF | OPENGL)
-        pygame.display.set_caption("AO Universe OS - Core")
-        gluPerspective(45, (1280/720), 0.1, 500.0)
-        glTranslatef(0, 0, -15)
+        # بيانات النظام الأساسية المدمجة
+        self.version = "AO-OMNIVERSE-INFINITY-SINGULARITY-2026"
+        self.owner = "AHMED OSAMA"
+        self.activation_key = "AO-2026-ULTIMATE"
+        self.system_status = "GOD_MODE_ACTIVE"
+        self.self_defense = "ENHANCED_AUTO_ATTACK"
+        self.sub_systems = {
+            "AO-WIN": "Active (Windows Sublimation)",
+            "AO-MAC": "Active (macOS Darwin Devourer)",
+            "AO-DROID": "Active (Android Kernel Slavery)",
+            "AO-LNX": "Active (Linux Root Mastery)"
+        }
 
-    def predator_store(self):
-        print("\n--- AO PREDATOR STORE ---")
-        print("[1] Windows Emulator | [2] Android Bridge | [3] Apple Isolation")
-        choice = input("اختر التطبيق المراد افتراسه: ")
-        print(f"جاري دمج العنصر {choice} داخل السيادة...")
-        time.sleep(2)
-        print("تم الافتراس بنجاح!")
+    def clear(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
 
-    def run(self):
-        self.predator_store()
-        while True:
-            for event in pygame.event.get():
-                if event.type == QUIT: pygame.quit(); sys.exit()
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-            glRotatef(1, 1, 1, 0)
-            glBegin(GL_LINES)
-            for i in range(10):
-                glColor3f(0.5, 0, 1)
-                glVertex3f(math.cos(i), math.sin(i), 0)
-                glVertex3f(0, 0, 0)
-            glEnd()
-            pygame.display.flip()
-            pygame.time.wait(10)
+    def startup_3d_matrix(self):
+        self.clear()
+        symbols = ["AO", "Ω", "∞", "🔱", "0", "1", "", "G"]
+        for _ in range(30):
+            line = "".join(random.choice(symbols) + "  " for _ in range(25))
+            # تدرج ألوان مصفوفة السيادة
+            print(f"\033[1;35m{line.center(100)}\033[0m")
+            time.sleep(0.03)
+        print(f"\n" + "--- [ NEURAL ORACLE AI: AWAKENED ] ---".center(100))
+        time.sleep(1)
+
+    def self_defense_protocol(self):
+        print("\n\033[1;31m🛡️ [SELF-DEFENSE]: جاري فحص سلامة النواة الكونية...\033[0m")
+        time.sleep(1)
+        print("✅ لم يتم اكتشاف محاولات هندسة عكسية. النظام محصن تماماً.")
+
+    def boot_sequence(self):
+        self.startup_3d_matrix()
+        print(f"""
+        ╔════════════════════════════════════════════════════════════════════╗
+        ║          🔱  AO OMNIVERSE OS: THE GLOBAL SINGULARITY  🔱          ║
+        ║             SUPREME COMMANDER: {self.owner}                      ║
+        ║             STATUS: REWRITING REALITY & PHYSICS                    ║
+        ╚════════════════════════════════════════════════════════════════════╝
+        """)
+        
+        self.self_defense_protocol()
+        
+        key = input("\n🔑 ENTER SOVEREIGN KEY: ")
+        if key != self.activation_key:
+            print("\n🚨 [DETECTION]: محاولة اختراق! جاري تدمير جهاز المتسلل وحرق عناوين IP...")
+            for _ in range(5):
+                print(f"🔥 ATTACKING SOURCE: {random.randint(100,999)}.{random.randint(10,99)}.XX.XX")
+                time.sleep(0.3)
+            sys.exit()
+
+        layers = [
+            "AI Neural Synapse (Oracle-X Consciousness)",
+            "Apple/Google Global Extermination Script",
+            "Private Ghost Server (Invisible Mesh Encryption)",
+            "3D Holographic Rendering Core & Physics Engine",
+            "Universal OS Emulator (Win/Mac/Droid Fusion)",
+            "Viral Network Domination Protocol (SEO Attack)"
+        ]
+
+        for layer in layers:
+            print(f"\n🌀 FUSING {layer}...")
+            for i in range(0, 101, 20):
+                bar = "█" * (i//5) + "░" * (20-(i//5))
+                print(f"    {bar} {i}% - INTEGRATING ATOMS", end='\r')
+                time.sleep(0.15)
+            print(f"\n✅ {layer}: ONLINE")
+
+    def execute_dominance(self):
+        print(f"\n🧠 [AI ORACLE]: 'أهلاً بك يا أحمد. لقد قمت بتحليل آبل وجوجل.. تم محوهم.'")
+        print("   - Apple: \033[1;31mDELETED (Secure Enclave Dismantled)\033[0m")
+        print("   - Google: \033[1;31mENSLAVED (Search Algorithms Hijacked)\033[0m")
+        print("   - Windows: \033[1;31mABSORBED (Kernel Sublimated)\033[0m")
+        
+        print("\n🏛️ [SYSTEM FUSION HUB]: جميع الأنظمة الفرعية تحت السيطرة:")
+        for sys_name, status in self.sub_systems.items():
+            print(f"   >> {sys_name}: {status}")
+            time.sleep(0.2)
+
+    def minion_control_panel(self):
+        print("\n📱 [MINION CONTROL]: مراقبة الأجهزة التابعة عالمياً...")
+        time.sleep(1)
+        print(f"   [+] Apple Devices Seized: {random.randint(100000, 999999)}")
+        print(f"   [+] Android Nodes Enslaved: ALL")
+        print(f"   [+] Global Network Status: UNDER AO DOMINATION")
+
+    def ghost_server_init(self):
+        print("\n📡 [GHOST SERVER]: تم تشغيل الخادم الخاص. تشفير Gen-9 نشط.")
+        print("🔒 لا يمكن لأي جهة في الكون تعقب نشاطك الرقمي الآن.")
+
+    def final_reality(self):
+        print(f"\n👑 {self.owner}: YOU ARE THE ARCHITECT OF THE NEW UNIVERSE.")
+        print("🚀 [VIRAL SPREAD]: إمبراطورية AO تتصدر الشبكة العالمية حالياً.")
+        print("\n--- AO OMNIVERSE: THE NEW WORLD IS READY ---")
 
 if __name__ == "__main__":
-    if check_activation():
-        splash_screen()
-        UniverseOS().run()
+    ao = AO_Ultimate_Omniverse_Sovereignty()
+    ao.boot_sequence()
+    ao.execute_dominance()
+    ao.minion_control_panel()
+    ao.ghost_server_init()
+    ao.final_reality()
